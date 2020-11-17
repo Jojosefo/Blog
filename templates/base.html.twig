@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block navbar %}
+        
+        <nav id="mainNav" class="navbar sticky-top navbar-expand-sm fixed-top navbar-light scrolling-navbar" style="position:fixed;">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav container-fluid">
+                <div class="d-flex justify-content-start col-sm-4">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                </div>
+
+
+                <h1 class="col-sm d-flex justify-content-center col-sm-4">Callmehappiness</h1>
+
+
+                <div class="d-flex justify-content-end col-sm-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Instagram</a>
+                </li>
+                </div>
+
+               
+                </ul>
+            </div>
+        </nav>
+         
+
+        {% endblock %}
+
+        {% block body %}
+
+        {% endblock %}
+
+        {% block footer %}
+        <footer>
+        <div class="container-fluid" style="height:60px;background-color:#D291BC;margin-top:150px;">
+            <span style="text-align:center;" class="text-muted">Créé par Bibou Bibi</span>
+        </div>
+        </footer>
+        
+        {% endblock %}
+        {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
+</html>
