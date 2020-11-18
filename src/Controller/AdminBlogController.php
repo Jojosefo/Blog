@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Articles;
+use App\Entity\Article;
 use App\Form\BlogPostType;
 
 class AdminBlogController extends AbstractController
@@ -16,7 +16,7 @@ class AdminBlogController extends AbstractController
      */
     public function new(Request $request)
     {
-        $article = new Articles();
+        $article = new Article();
 
         $form = $this->createForm(BlogPostType::class, $article);
 
@@ -24,7 +24,7 @@ class AdminBlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
-            $task = $form->getData();
+            $article = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
@@ -32,10 +32,12 @@ class AdminBlogController extends AbstractController
 
             return $this->redirectToRoute('task_success');
 
+        
+        }
+
         return $this->render('admin_blog/index.html.twig', [
             'form' => $form->createView(),
         ]);
-        }
     }
 
     /**
@@ -45,6 +47,27 @@ class AdminBlogController extends AbstractController
     {
         return $this->render('admin_blog/success.html.twig', [
             'controller_name' => 'MainController',
+        ]);
+    }
+
+    /**
+     * @Route("/article/{id}", name="article1")
+     */
+    public function showArticle($id)
+    {
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->find($id);
+
+
+        if(!$article){
+            throw $this->createNotFoundException(
+                'Pas d\'articles correspondant avec l\'id'.$id
+            );
+        }
+
+        return $this->render('article/index.html.twig', [
+            'article' => $article, 
         ]);
     }
 
