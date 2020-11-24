@@ -8,14 +8,35 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
 use App\Form\BlogPostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class AdminBlogController extends AbstractController
 {
+    /**
+     * @Route("/admin/connexion", name="admin_blog")
+     */
+    public function index(Request $request)
+    {
+
+
+
+
+
+
+
+
+    }
+
+
+
     /**
      * @Route("/admin/blog", name="admin_blog")
      */
     public function new(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $article = new Article();
 
         $form = $this->createForm(BlogPostType::class, $article);
