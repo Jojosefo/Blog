@@ -1,1 +1,15 @@
-{% block title %}Success !!!{% endblock %}
+
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('form') }}
+        {% endblock %}
+
+<div class="container">
+{% block title %}Article Enregistré !!!{% endblock %}
+
+<button id="myBtn">Redirect</button>
+</div>
+
+        {% block javascripts %}
+        {{ encore_entry_script_tags('form') }}
+        {% endblock %}

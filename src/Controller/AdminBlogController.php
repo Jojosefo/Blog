@@ -20,18 +20,12 @@ class AdminBlogController extends AbstractController
     {
 
 
-
-
-
-
-
-
     }
 
 
 
     /**
-     * @Route("/admin/blog", name="admin_blog")
+     * @Route("/admin", name="admin_blog")
      */
     public function new(Request $request)
     {
