@@ -67,7 +67,7 @@
 <div class="container" style="padding-top:50px;padding-bottom:50px;">
  <div class="row">
     <div class="col-8"><img class="d-block w-100"  src="https://picsum.photos/1200/500?random=4" alt="Third slide"></div>
-    <div class="col-4">Aliquip tempor et non aliqua proident dolore eu. Labore anim fugiat sit ea ipsum ullamco ut sint proident qui nostrud reprehenderit. Laborum et cupidatat aliqua excepteur. Velit duis cillum elit laborum nulla consequat et ullamco culpa non ut pariatur ut.</div>
+    <div class="col-4"></div>
   </div>
 </div>
 
@@ -76,29 +76,17 @@
   <h1>Mes Coups de Coeur</h1>
 </div>
 
-
-
-
-<div class="container" style="padding:50px 0px 50px 0px;">
-    <div class="row" style="">
-
-        <div class="col-md">
-        <img src="https://picsum.photos/300/150">
-        <p>Dolor do mollit commodo aute veniam ut Lorem velit dolore proident Lorem sint esse ipsum.</p>
-        </div>
-
-        <div class="col-md">
-        <img src="https://picsum.photos/300/150">
-        <p>Dolor do mollit commodo aute veniam ut Lorem velit dolore proident Lorem sint esse ipsum.</p>
-        </div>
-
-        <div class="col-md">
-        <img src="https://picsum.photos/300/150">
-        <p>Dolor do mollit commodo aute veniam ut Lorem velit dolore proident Lorem sint esse ipsum.</p>
-        </div>
-
-    </div>
+<div>
+    {{ render(controller(
+        'App\\Controller\\ArticleController::recentArticles',
+        
+    )) }}
 </div>
+
+
+
+
+
 
 <div class="container">
 <div class="row">
@@ -116,9 +104,20 @@
   <figcaption><h1 style="padding-top:15px;">Recette</h1></figcaption>
 </figure>
 </div>
+
+        
   
 
 </div>
 </div>
 
 {% endblock %}
+
+       {% block footer %}
+        <footer class="page-footer font-small pt-4" style="background-color:#2E2E2E;color:#ffffff ">
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href=""> Callmehappiness.fr</a>
+        </div>
+        </footer>
+                
+        {% endblock %}

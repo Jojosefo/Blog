@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container" style="padding:50px 0px 50px 0px;">
+    <div class="row" style="">
+{% for article in articles %}
+
+        
+        <div class="col-md">
+        <a style="text-decoration:none;color:black" href=" {{ path('blog_post', {slug: article.id}) }}">
+        <img src={{ article.media }}>
+        <h2>{{ article.titre}}</h2>
+        <span>publié le : {{article.datepublication}}</span>
+        </a>
+        </div>
+        
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
+
+
+
